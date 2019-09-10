@@ -48,8 +48,8 @@ public class Email  {
         this.password = password;
     }
 
-    //Change Password
 
+    //EMAIL
     private void setEmail(){
         this.email = firstName.toLowerCase() +
                 "." + lastName.toLowerCase() +

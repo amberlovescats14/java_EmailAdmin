@@ -19,8 +19,14 @@ public class X_Email extends Email {
     }
 
     //  alternate email
-    //set alt email
+
     public void setAltEmail(String email){
         this.altEmail = email;
     }
+
+    public String getAltEmail(){
+        return altEmail;
+    }
+
+
 }
