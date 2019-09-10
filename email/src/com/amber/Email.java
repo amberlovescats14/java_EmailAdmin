@@ -15,17 +15,29 @@ public class Email {
     public Email(String firstName, String lastName) {
         this.firstName = firstName;
         this.lastName = lastName;
-        System.out.println("Email Created:" + firstName + lastName);
+        System.out.println("Email Created: " + firstName + " " + lastName);
         // ask dept
-        this.department = new Department().askDept();
+        setDept();
+        //create password
+        setPassword();
 
     }
-    //ask dept
-
-
+    //set dept
+    private void setDept(){
+        this.department = new Department().askDept();
+        System.out.println("Department Created: " + department);
+    }
+    private String getDepartment(){
+        return this.department;
+    }
 
     //generate password
-
+    private void setPassword(){
+        this.password = new Password().generatePassword(8);
+    }
+    private String getPassword(){
+        return this.password;
+    }
     //set mailbox capacity
 
     //set alt email

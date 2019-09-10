@@ -9,9 +9,8 @@ public class Department implements I_Department {
         Scanner scan = new Scanner(System.in);
         System.out.print("What department do you work in?");
         String answer = scan.nextLine();
-        if(answer == "none") department = "";
-        department = answer;
-        System.out.println("Department: " + department);
-        return department;
+
+        if(answer == "none" || answer == "")  return  "";
+        else return answer;
     }
 }
