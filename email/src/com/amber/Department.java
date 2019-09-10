@@ -5,12 +5,11 @@ import java.util.Scanner;
 public class Department implements I_Department {
     @Override
     public String askDept(){
-        String department;
         Scanner scan = new Scanner(System.in);
         System.out.print("What department do you work in?");
-        String answer = scan.nextLine();
+        String answer = scan.nextLine().toLowerCase().trim();
 
-        if(answer == "none" || answer == "")  return  "";
-        else return answer;
+        if(answer == "none" || answer == "")  return "";
+        return answer;
     }
 }

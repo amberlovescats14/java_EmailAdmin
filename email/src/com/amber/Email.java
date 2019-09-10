@@ -1,51 +1,59 @@
 package com.amber;
 
-import java.util.Scanner;
-
-public class Email {
+public class Email  {
     private String firstName;
     private String lastName;
     private String department;
     private String email;
+    private String companySuffix = "apple.com";
     private String password;
-    private int mailboxCapacity;
-    private String altEmail;
+    private byte defaultPasswordLength = 8;
+    private String altEmail = "none";
+
 
     //constructor
     public Email(String firstName, String lastName) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        System.out.println("Email Created: " + firstName + " " + lastName);
+        this.firstName = firstName.trim();
+        this.lastName = lastName.trim();
+        System.out.println("Welcome " + firstName + " " + lastName);
         // ask dept
         setDept();
         //create password
         setPassword();
+        // set email
+        setEmail();
+
+        //present emails and password
+        System.out.println("Email: " + email);
+        System.out.println("Password: " + password);
 
     }
     //set dept
     private void setDept(){
         this.department = new Department().askDept();
-        System.out.println("Department Created: " + department);
+        if(department == "") System.out.println("No department specified.");
     }
-    private String getDepartment(){
+    public String getDepartment(){
         return this.department;
     }
 
     //generate password
     private void setPassword(){
-        this.password = new Password().generatePassword(8);
+        this.password = new Password().generatePassword(defaultPasswordLength);
     }
     private String getPassword(){
         return this.password;
     }
-    //set mailbox capacity
-
-    //set alt email
+    public void changePassword(String password){
+        this.password = password;
+    }
 
     //Change Password
 
-    public void setEmail(){
-        this.email = firstName + "." + lastName + "@" + department + ".company.com";
+    private void setEmail(){
+        this.email = firstName.toLowerCase() +
+                "." + lastName.toLowerCase() +
+                "@" + department + "." + companySuffix;
     }
     public String getEmail(){
         return email;
